@@ -40,7 +40,7 @@ COMPILING AND RUNNING:
 		- 1 is the move closest to the border
 		- 2 is Warnsdorff's heuristic
 	
-	The second argument (n) represents the desired side of the board. It will be
+	The second argument (n) represents the desired size of the board. It will be
 	a square of size nxn.
 	
 	The third and fourth arguments (x and y) represent the starting coordinates
