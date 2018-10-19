@@ -1,0 +1,98 @@
+*******************************************************************************
+* Assignment 01: Knight's Tour
+* CS 421
+* 05/16/2018
+* Jason Egbert
+*******************************************************************************
+
+OVERVIEW:
+*******************************************************************************
+	This program is designed to run a simulation of the Knight's Tour, wherein
+	the user inputs a size, a heuristic type, and a starting location, and the
+	program completes the knight's tour by moving the knight to every square on
+	the board in a single path, or by determining that there is not a solution
+	on the given board from the selected location. Upon completion the program
+	returns the total number of attempted moves required to complete the tour
+	and upon success the board with the path indicated numerically will be
+	displayed.
+	 
+INCLUDED FILES:
+*******************************************************************************
+	* KnightTour.java - driver class/test file
+	* KnightBoard.java - source file
+	* Position.java - source file
+	* README - this file
+
+COMPILING AND RUNNING:
+*******************************************************************************
+	To compile this program, ensure that all .java files are present in the 
+	source directory, then execute the following in the command line:
+	```
+	$ javac KnightTour.java
+	```
+	To run the driver program, execute the following in the command line:
+	```
+	$ java KnightTour <0/1/2> <n> <x> <y>
+	```
+	The first argument represents the desired heuristic governing movement of the
+	knight on the tour
+		- 0 is no heuristic
+		- 1 is the move closest to the border
+		- 2 is Warnsdorff's heuristic
+	
+	The second argument (n) represents the desired side of the board. It will be
+	a square of size nxn.
+	
+	The third and fourth arguments (x and y) represent the starting coordinates
+	with x being the vertical coordinate and y being the horizontal coordinate 
+	(the grid is essentially rotated 90 degrees to the right from standard).
+	
+	The results of the tour will be returned to the console when the program
+	finishes.
+	
+TESTING:
+*******************************************************************************
+	The testing for this program was conducted by comparing the results to a 
+	set of expected results for each of the given traversal algorithms. The 
+	result set for a 7x7 board starting in position (1,1) is provided in the 
+	section Experiment Results below. They confirm that no heuristic is the 
+	least effective, followed by heuristic 1, and then the results seem to
+	confirm that Warnsdorff's heuristic is the most efficient at traversing
+	the board, which was exactly as expected. 
+
+EXPERIMENT RESULTS
+*******************
+$ java KnightTour 0 7 1 1
+The total number of moves is 254727174
+   0  1  2  3  4  5  6 
+0 21 46 41  2 23 26  9 
+1 40  1 22 27 10  3 24 
+2 47 20 45 42 25  8 11 
+3 44 39 34 19 28 15  4 
+4 33 48 43 36  7 12 29 
+5 38 35 18 31 14  5 16 
+6 49 32 37  6 17 30 13 
+
+$ java KnightTour 1 7 1 1
+The total number of moves is 810
+   0  1  2  3  4  5  6 
+0 21 44 11  2 23 36 13 
+1 10  1 22 43 12  3 24 
+2 45 20  9 40 35 14 37 
+3  8 33 42 49 38 25  4 
+4 19 46 39 34 41 28 15 
+5 32  7 48 17 30  5 26 
+6 47 18 31  6 27 16 29 
+
+$ java KnightTour 2 7 1 1
+The total number of moves is 172
+   0  1  2  3  4  5  6 
+0 49 44 11  2 29 42 13 
+1 10  1 46 43 12  3 28 
+2 45 48  9 30 41 14 35 
+3  8 25 40 47 36 27  4 
+4 39 22 31 26 17 34 15 
+5 24  7 20 37 32  5 18 
+6 21 38 23  6 19 16 33 
+
+-------------------------------------------------------------------------------
